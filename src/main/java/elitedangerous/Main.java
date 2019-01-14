@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 
 import elitedangerous.handler.DatabaseHandler;
+import elitedangerous.journalHandler.JournalHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -71,6 +72,8 @@ public class Main extends Application {
 		}
 
 		logger.info( "Loading JournalLog..." );
+		JournalHandler journalHandler = new JournalHandler();
+		journalHandler.journalListener();
 
 
 

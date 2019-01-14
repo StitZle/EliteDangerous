@@ -1,4 +1,4 @@
-package elitedangerous.handler;
+package elitedangerous.journalHandler;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
+import org.json.JSONObject;
+
 import elitedangerous.functions.SystemLogger;
 
 
@@ -19,18 +21,17 @@ public class JournalHandler
 
 	public void journalListener()
 	{
-
-		// Get Filename
 		try {
-			BufferedReader reader = new BufferedReader( new FileReader( getLastJournalFile() ) );
+			BufferedReader reader = new BufferedReader( new FileReader( "./Journals/" + getLastJournalFile() ) );
 			String line;
 
 			while (true) {
 				try {
 					line = reader.readLine();
 					if (line != null) {
-						System.out.println(line);
-						JSONObject jsonObj = new JSONObject(jsonString.toString());
+						JSONObject jsonObject = new JSONObject( line );
+						eventHandler( jsonObject );
+
 					}
 				}catch ( IOException e ){
 					logger.error( "Exception occurred trying to read Journal File" + e );
@@ -43,20 +44,19 @@ public class JournalHandler
 
 
 	public String getLastJournalFile ()
-
 	{
-		File folder = new File( "Path" );
+		File folder = new File( "./Journals/" );
 		ArrayList<String> listOfFiles = new ArrayList<>( Arrays.asList( folder.list() ) );
-		ArrayList<Integer> listOfTimestamps = new ArrayList<>(  );
+		ArrayList<Long> listOfTimestamps = new ArrayList<>(  );
 
-
-		for( String file : listOfFiles ) {
-			if( !file.toLowerCase().contains( "Journal" ) ) {
-				listOfFiles.remove( file );
+		for( int i = 0; i < listOfFiles.size(); i++ ) {
+			String file = listOfFiles.get( i );
+			if( !file.toLowerCase().contains( "journal" ) || (file.toLowerCase().contains( "cache" )) ) {
+				listOfFiles.remove( i );
 			}
 			else {
-				file.toLowerCase().replace( "Journal.", "" ).replace( ".01.log", "" );
-				listOfTimestamps.add( Integer.parseInt(file) );
+				file = file.replace( "Journal.", "" ).replace( ".01.log", "" );
+				listOfTimestamps.add( Long.valueOf(file) );
 			}
 		}
 		Collections.sort( listOfTimestamps, Collections.reverseOrder() );
@@ -68,6 +68,20 @@ public class JournalHandler
 			if (file.contains( newestJournalTimestamp )){return file;}
 		}
 		return null;
+	}
+
+	public void eventHandler (JSONObject jsonObject)
+	{
+		System.out.println(jsonObject.get( "event" ));
+
+		try
+		{
+			Thread.sleep( 3000 );
+		}
+		catch( InterruptedException e )
+		{
+			e.printStackTrace();
+		}
 	}
 
 }
