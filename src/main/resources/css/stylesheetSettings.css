@@ -1,0 +1,10 @@
+#anchorPane{
+    -fx-background-image: url("/images/elitedangerous-logo.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
+#buttonToggleFullscreen{
+    -fx-text-fill: "#ff9900";
+}

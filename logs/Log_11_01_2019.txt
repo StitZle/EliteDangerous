@@ -1,0 +1,8 @@
+-----------------------
+Log start
+Start time: 11/01/2019 17:50:17
+------------------------
+
+17:50:17 -INFO-    : Successfully tryed to connect to Database
+17:50:17 -INFO-    : Init...
+17:50:17 -INFO-    : Loading JournalLog...

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="/css/stylesheetSettings.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="elitedangerous.controller.SettingsController">
+   <children>
+      <AnchorPane fx:id="anchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="299.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="buttonSelectFilePath" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="Select File Path" textFill="#ff9900" />
+            <Button fx:id="buttonToggleFullscreen" layoutX="246.0" layoutY="200.0" mnemonicParsing="false" onAction="#toggleFullscreen" text="Toggle Fullscreen" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

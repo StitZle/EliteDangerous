@@ -1,0 +1,4 @@
+{ "timestamp":"2018-10-06T11:26:14Z", "event":"Fileheader", "part":1, "language":"German\\DE", "gameversion":"3.2.1.300 EDH", "build":"r180310/r0 " }
+{ "timestamp":"2018-10-06T11:26:14Z", "event":"Music", "MusicTrack":"NoTrack" }
+{ "timestamp":"2018-10-06T11:26:14Z", "event":"Music", "MusicTrack":"MainMenu" }
+{ "timestamp":"2018-10-06T11:27:59Z", "event":"Shutdown" }

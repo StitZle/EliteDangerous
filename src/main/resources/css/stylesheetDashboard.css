@@ -1,0 +1,12 @@
+.root{
+    -fx-background-image: url("/images/elitedangerous-logo.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
+#settingsButton{
+    -fx-background-image: url("/images/settings-work-tool.png");
+    -fx-pref-height: 50px;
+    -fx-pref-width: 50px;
+}
