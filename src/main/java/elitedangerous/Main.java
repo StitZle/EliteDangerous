@@ -55,25 +55,16 @@ public class Main extends Application {
 		}
 
 
+		DatabaseHandler databaseHandler = new DatabaseHandler();
+		databaseHandler.generateNewDatabase();
+		databaseHandler.generateTables();
 
-		try (Connection conn = DriverManager.getConnection( DB_URL+DB_NAME ))
-		{
-			logger.info( "Successfully tryed to connect to Database" );
-			logger.info( "Init..." );
-
-		}
-		catch (SQLException e)
-		{
-			logger.warning( "No Database found" );
-			logger.info( "Init Database..." );
-			DatabaseHandler databaseHandler = new DatabaseHandler();
-			databaseHandler.generateNewDatabase();
-			logger.info( "Init..." );
-		}
 
 		logger.info( "Loading JournalLog..." );
 		JournalHandler journalHandler = new JournalHandler();
 		journalHandler.journalListener();
+
+		System.exit( 404 );
 
 
 

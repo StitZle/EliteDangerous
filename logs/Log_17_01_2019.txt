@@ -1,0 +1,12 @@
+-----------------------
+Log start
+Start time: 17/01/2019 16:41:18
+------------------------
+
+16:41:18 -INFO-    : Connection: org.sqlite.SQLiteConnection@5a602c3a
+16:41:18 -INFO-    : The database driver name is: SQLite JDBC
+16:41:18 -INFO-    : Database driver version: 3.23.1
+16:41:18 -INFO-    : Database Path: jdbc:sqlite:./src/main/resources/database/ED_Database.db
+16:41:18 -INFO-    : Table name: MissionBoard
+16:41:18 -INFO-    : Loading JournalLog...
+16:41:20 -ERROR-   : Error in line: { "timestamp":"2018-12-24T13:58:10Z", "event":"LoadGame", "FID":""Credits":288611981, "Loan":0 } . org.json.JSONException: Expected a ',' or '}' at 67 [character 68 line 1]

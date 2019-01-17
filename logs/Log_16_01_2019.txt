@@ -1,0 +1,11 @@
+-----------------------
+Log start
+Start time: 16/01/2019 20:48:55
+------------------------
+
+20:48:55 -INFO-    : Connection: org.sqlite.SQLiteConnection@6a355740
+20:48:55 -INFO-    : The database driver name is: SQLite JDBC
+20:48:55 -INFO-    : Database driver version: 3.23.1
+20:48:55 -INFO-    : Database Path: jdbc:sqlite:./src/main/resources/database/ED_Database.db
+20:48:55 -INFO-    : Table name: MissionAccepted
+20:48:55 -INFO-    : Loading JournalLog...

@@ -10,9 +10,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import elitedangerous.functions.SystemLogger;
+import elitedangerous.journalHandler.eventHandler.MissionAbandoned;
+import elitedangerous.journalHandler.eventHandler.MissionAccepted;
 
 
 public class JournalHandler
@@ -29,9 +32,12 @@ public class JournalHandler
 				try {
 					line = reader.readLine();
 					if (line != null) {
-						JSONObject jsonObject = new JSONObject( line );
-						eventHandler( jsonObject );
-
+						try {
+							JSONObject jsonObject = new JSONObject( line );
+							eventHandler( jsonObject );
+						}catch( JSONException e ){
+							logger.error( "Error in line: " + line + " . " + e );
+						}
 					}
 				}catch ( IOException e ){
 					logger.error( "Exception occurred trying to read Journal File" + e );
@@ -72,16 +78,18 @@ public class JournalHandler
 
 	public void eventHandler (JSONObject jsonObject)
 	{
-		System.out.println(jsonObject.get( "event" ));
+		MissionAccepted missionAccepted = new MissionAccepted();
+		MissionAbandoned missionAbandoned = new MissionAbandoned();
 
-		try
-		{
-			Thread.sleep( 3000 );
+		switch( jsonObject.getString( "event" ) ) {
+
+			case "MissionAccepted" : missionAccepted.missionAccepted(jsonObject); break;
+			case "MissionAbandoned" : missionAbandoned.missionAbondoned( jsonObject ); break;
+
+			case "MissionCompleted" :
+				System.out.println("MissionCompleted"); break;
 		}
-		catch( InterruptedException e )
-		{
-			e.printStackTrace();
-		}
+
 	}
 
 }
